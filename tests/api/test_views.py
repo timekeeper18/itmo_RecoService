@@ -53,6 +53,7 @@ def test_get_reco_for_unknown_model(
     client: TestClient,
 ) -> None:
     user_id = 33
+    # тесть на название модели
     path = GET_RECO_PATH.format(model_name="some_model", user_id=user_id)
     client.headers = dict(Authorization=f"Bearer {getenv('SECRET_TOKEN')}")
     with client:
@@ -66,6 +67,7 @@ def test_get_reco_unauthorized(
     service_config: ServiceTestConfig,
 ) -> None:
     user_id = 33
+    # тест на авторизацию
     path = GET_RECO_PATH.format(model_name=f"{service_config.model}",
                                 user_id=user_id)
     with client:

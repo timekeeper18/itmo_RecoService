@@ -21,20 +21,10 @@ class LogConfig(Config):
         }
 
 
-class ServiceTestConfig(Config):
-    service_name: str = "reco_service"
-    k_recs: int = 10
-    items_path = Path.cwd().parent.parent.joinpath('service', 'data',
-                                                   'kion_train', 'kion_train',
-                                                   'interactions.csv')
-    log_config: LogConfig
-    model: str = 'first'
-
-
 class ServiceConfig(Config):
     service_name: str = "reco_service"
     k_recs: int = 10
-
+    # путь до данных дня поднятия в app.py
     items_path = Path.cwd().joinpath('service', 'data', 'kion_train',
                                      'kion_train',
                                      'interactions.csv')

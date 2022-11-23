@@ -29,6 +29,9 @@ class UserNotFoundError(AppException):
 
 
 class ModelNotFoundError(AppException):
+    """
+    Исключение при обращении не к той модели
+    """
     def __init__(
         self,
         status_code: int = HTTPStatus.NOT_FOUND,
@@ -40,6 +43,9 @@ class ModelNotFoundError(AppException):
 
 
 class NotAuthorizedError(AppException):
+    """
+    Исключение при обращении без токена
+    """
     def __init__(
         self,
         status_code: int = HTTPStatus.UNAUTHORIZED,

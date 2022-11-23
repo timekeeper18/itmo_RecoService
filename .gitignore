@@ -76,3 +76,4 @@ venv.bak/
 #data
 /service/data/kion_train.zip
 /service/data/kion_train/
+/.venv/
