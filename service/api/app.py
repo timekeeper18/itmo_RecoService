@@ -36,12 +36,16 @@ def create_app(config: ServiceConfig) -> FastAPI:
     app = FastAPI(debug=False)
     app.state.k_recs = config.k_recs
     app.state.items_path = config.items_path
+    # Импортируем из конфига наименование модели
     app.state.model = config.model
+
+    # поднимаем и подготавливаем данные
     a = pd.read_csv(config.items_path)[
         ['user_id', 'item_id']]
     app.state.item_list = list(a['item_id'].unique())
     app.state.items = a.groupby('user_id').agg(
         {'item_id': lambda x: sorted(list(x))})
+
     add_views(app)
     add_middlewares(app)
     add_exception_handlers(app)
