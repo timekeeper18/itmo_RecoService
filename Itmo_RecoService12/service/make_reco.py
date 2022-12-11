@@ -189,11 +189,3 @@ class KionRecoBM25(KionReco):
             return df_recos
         else:
             return self.sorted_top[:k_recos]
-
-
-if __name__ == "__main__":
-    model = KionRecoBM25(
-        "/media/akhmadiev/528807968807782D/Develop/PycharmProjects/Itmo_RecoService12/service/models/userknn_BM25Recommender.dill",
-        "/media/akhmadiev/528807968807782D/Develop/PycharmProjects/Itmo_RecoService12/service/data/dataset_userknn_BM25Recommender.dill")
-
-    print(model.reco(user_id=966229))
